@@ -1,0 +1,129 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1-transitional">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style type="text/css">
+<!--
+BODY {
+	background-image: url("Background.jpg");
+	background-position: top, center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-color: #FFFFFFFF;
+	margin-left: 10px;
+	margin-right: 10px;
+	background-attachment: scroll;
+	background-position: left top;
+}
+#logo div img {
+	margin-top: -27px;
+	margin-right: -27px;
+	margin-bottom: -27px;
+	margin-left: -27px;
+}
+td,th {
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #000000;
+	background-repeat: no-repeat;
+}
+
+-->
+</style> 
+
+<link rel="shortcut icon" href="favicon.ico.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge; charset= utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="styles.css" />
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<script src="script.js"></script>
+<link rel='stylesheet' id='camera-css'  href='camera.css' type='text/css' media='all'> 
+    <script type='text/javascript' src='jquery.min.js'></script>
+    <script type='text/javascript' src='jquery.mobile.customized.min.js'></script>
+    <script type='text/javascript' src='jquery.easing.1.3.js'></script> 
+    <script type='text/javascript' src='camera.min.js'></script> 
+
+<title>Affinity Travel Agency</title>
+</head>
+<body background="Background.png" width="100%" height="100%" align="center">
+<!-- Logo -->
+<TABLE WIDTH="100%" BORDER=0 ALIGN="LEFT">
+<TR><TD ALIGN="LEFT"><img src="Affinity Travels.png" width="320" height="180" alt=""/></TD><TD></TD></TR>
+</TABLE>
+
+<BR>
+<!--Navigation bar-->
+<TABLE BORDER=0 WIDTH="80%" BACKGROUND="opaque.png" ALIGN="CENTER">
+	<TR> 
+		<TD ALign="Center">
+			<div id='cssmenu'>
+				<ul>
+				   <li class='last'><a href='Affinity.html'><span>Home</span></a></li>
+				   <li><a href='Cruise.html'><span>Cruise</span></a></li>
+				   <li><a href='Resort.html'><span>Resort</span></a></li>
+				   <li class='last'><a href='CaliAdv.html'><span>California Adventure</span></a></li>
+				   <li class='last'><a href='Testimonials.html'><span>Testimonials</span></a></li>
+				   <li class='active'><a href='PriceCalc.html'><span>Prices</span></a></li>
+				</ul>
+			</div>
+		</TD>
+	</TR>
+</TABLE>
+
+<script type="text/javascript">
+  function calculatePrice()
+  {
+      //Get selected data  
+      var elt = document.getElementById("memoryItem");
+      var memory = elt.options[elt.selectedIndex].value;
+
+      elt = document.getElementById("hddItem");
+      var hdd = elt.options[elt.selectedIndex].value;
+
+      elt = document.getElementById("networkItem");
+      var network = elt.options[elt.selectedIndex].value;
+
+      //convert data to integers
+      memory = parseInt(memory);
+      hdd = parseInt(hdd);
+      network = parseInt(network);
+
+      //calculate total value  
+      var total = memory+hdd+network; 
+
+      //print value to  PicExtPrice 
+      document.getElementById("PicExtPrice").value=total;
+
+ }
+</script>
+
+<FORM Name="myform">
+    <SELECT NAME="memoryItem" onChange="calculatePrice()" id="memoryItem">
+       <OPTION value="0">Select One Choice from List-Memory Upgrade</OPTION>
+       <OPTION value="49">8 GB add $49</OPTION>
+       <OPTION value="98">12 GB add $98</OPTION>
+       <OPTION value="159">16 GB add $159</OPTION>
+    </SELECT>
+
+    <SELECT NAME="hddItem" onChange="calculatePrice()" id="hddItem">
+       <OPTION value="0">Select One Choice from List-HDD Upgrade</OPTION>
+       <OPTION value="109">1 TB HD add $109</OPTION>
+       <OPTION value="150">1.5 TB HD add $150</OPTION>
+       <OPTION value="199">2 TB HD add $199</OPTION>
+       <OPTION value="299">250 GB SSD add $299</OPTION>
+    </SELECT>
+
+    <SELECT NAME="networkItem" onChange="calculatePrice()" id="networkItem">
+       <OPTION value="0">Select One Choice from List- Network Upgrade</OPTION>
+       <OPTION value="109">56K V90 or X2 Modem add $109</OPTION>
+       <OPTION value="79">10/100 NIC add $79</OPTION>
+       <OPTION value="279">Combo Modem and NIC add $279</OPTION>
+    </SELECT>
+</FORM>
+
+<button type="button" onclick="calculatePrice()">Calculate</button>
+The new calculated price:<INPUT type="text" id="PicExtPrice" Size=8>
+
+</body>
+</html>
